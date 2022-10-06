@@ -39,7 +39,7 @@ const Home = () => {
             {getBannerApi.data &&
               new Intl.DateTimeFormat("en-GB", {
                 dateStyle: "full",
-              }).format(new Date(getBannerApi.data.date))}
+              }).format(new Date())}
           </div>
         </h1>
 
@@ -57,19 +57,25 @@ const Home = () => {
           />
         )}
       </section>
-      <section className="movie-catalog">
-        {getMovieApi.data &&
-          getMovieApi.data.results?.map((movie) => (
-            <Link key={movie.id} to={`movies/${movie.id}`}>
-              <MovieCard
-                image={movie.poster_path}
-                title={movie.original_title}
-                description={movie.overview}
-                popularity={movie.popularity}
-                releaseDate={movie.release_date}
-              />
-            </Link>
-          ))}
+      <section className="movie-container">
+        <div className="mov-grid">
+          {getMovieApi.data &&
+            getMovieApi.data.results?.map((movie) => (
+              <Link
+                key={movie.id}
+                to={`movies/${movie.id}`}
+                className="movie-item"
+              >
+                <MovieCard
+                  image={movie.poster_path}
+                  title={movie.original_title}
+                  description={movie.overview}
+                  popularity={movie.popularity}
+                  releaseDate={movie.release_date}
+                />
+              </Link>
+            ))}
+        </div>
       </section>
     </main>
   );

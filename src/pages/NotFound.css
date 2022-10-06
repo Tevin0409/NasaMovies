@@ -1,7 +1,7 @@
-body {
+.main-notfound {
   margin: 0;
   padding: 0;
-  background-color: #0a1821;
+  background-color: #000000;
   height: 100vh;
   width: 100vw;
   font-family: Roboto, Arial, sans-serif;
@@ -29,17 +29,17 @@ body {
   right: 10%;
   text-align: right;
 }
-h1 {
+.not-found-heading {
   font-weight: 700;
   font-size: 40px;
 }
-a {
+.not-found-link {
   font-weight: 300;
   color: #fff;
   border-bottom: 1.5px solid #5581d4;
   text-decoration: none;
 }
-a:hover {
+.not-found-link:hover {
   font-weight: 300;
   color: #fff;
   border-bottom: 2px solid #fff;
@@ -54,8 +54,6 @@ a:hover {
   50% {
     opacity: 0.1;
   }
-}
-.moon {
 }
 input[type="text"] {
   color: #fff;

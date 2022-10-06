@@ -3,7 +3,6 @@
   color: black;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   border-radius: 0.5rem;
-  margin: 1rem;
   padding: 1rem;
   cursor: pointer;
 }
@@ -14,14 +13,14 @@
 }
 
 .card img {
-  border-top-left-radius: 0.5rem; /* 8px */
-  border-top-right-radius: 0.5rem; /* 8px */
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   width: 100%;
-  margin-top: 1rem;
+  min-height: 400px;
 }
 
 .card-details {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .card-details h2 {
@@ -31,4 +30,10 @@
 
 .statistic {
   color: #ffb703;
+}
+/* movie card flex code */
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }

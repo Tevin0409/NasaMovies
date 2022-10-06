@@ -2,7 +2,7 @@ import React from "react";
 import "./NotFound.css";
 const NotFound = () => {
   return (
-    <div>
+    <main className="main-notfound">
       <div className="notfound-copy">
         <svg
           aria-labelledby="404"
@@ -19,10 +19,12 @@ const NotFound = () => {
             </g>
           </g>
         </svg>
-        <h1>page not found</h1>
+        <h1 className="not-found-heading">page not found</h1>
 
         <p>
-          <a href="/">Back Home</a>
+          <a className="not-found-link" href="/">
+            Back Home
+          </a>
         </p>
       </div>
 
@@ -95,7 +97,7 @@ const NotFound = () => {
           </g>
         </g>
       </svg>
-    </div>
+    </main>
   );
 };
 

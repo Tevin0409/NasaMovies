@@ -3,30 +3,31 @@ import axios from "axios";
 
 import "./App.css";
 import useApi from "./helpers/useApi";
+import MovieCard from "./components/movieCard";
 
 function App() {
   const getBannerImage = () =>
     axios.get(`https://api.nasa.gov/planetary/apod/?`, {
       params: {
-        api_key: "qN1eaQLr7gsRw4Y7a47baYKJrIn3CTngPOccwc03",
+        api_key: process.env.REACT_APP_NASA_API_KEY,
+      },
+    });
+  const getMovieCatalog = () =>
+    axios.get(`https://api.themoviedb.org/3/search/movie?`, {
+      params: {
+        api_key: process.env.REACT_APP_MOVIEDB_API_KEY,
+        language: "en-US",
+        query: "NASA",
+        include_adult: false,
+        page: 1,
       },
     });
   const getBannerApi = useApi(getBannerImage);
-
-  const isImgLink = (url) => {
-    if (typeof url !== "string") {
-      return false;
-    }
-    return (
-      url.match(/^http[^\?]*.(jpg|jpeg|gif|png|tiff|bmp)(\?(.*))?$/gim) !== null
-    );
-  };
+  const getMovieApi = useApi(getMovieCatalog);
 
   useEffect(() => {
-    // count = +1;
-
     getBannerApi.request();
-    // console.log(count);
+    getMovieApi.request();
   }, []);
 
   return (
@@ -42,26 +43,29 @@ function App() {
           </div>
         </h1>
 
-        {/* {getBannerApi.data && (
-          <iframe
-            title="video player"
+        {getBannerApi.data && getBannerApi.data.media_type === "image" ? (
+          <img
+            src={getBannerApi.data?.url}
+            alt="Pic of the Day"
             className="banner-img"
-            src={getBannerApi.data.url}
+          />
+        ) : (
+          <iframe
+            title="banner-video"
+            className="banner-video"
+            src={getBannerApi.data?.url}
           />
         )}
-        */}
-        {getBannerApi.data &&
-          (isImgLink(getBannerApi.data.url) ? (
-            <img
-              src={getBannerApi.data.url}
-              alt="Pic of the Day"
-              className="banner-img"
-            />
-          ) : (
-            <iframe
-              title="video player"
-              className="banner-video"
-              src={getBannerApi.data.url}
+      </section>
+      <section className="movie-catalog">
+        {getMovieApi.data &&
+          getMovieApi.data.results?.map((movie) => (
+            <MovieCard
+              image={movie.poster_path}
+              title={movie.original_title}
+              description={movie.overview}
+              popularity={movie.popularity}
+              releaseDate={movie.release_date}
             />
           ))}
       </section>

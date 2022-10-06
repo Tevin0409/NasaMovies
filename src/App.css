@@ -12,7 +12,7 @@
 }
 
 .banner-header span {
-  color: rgb(255, 183, 3);
+  color: #ffb703;
 }
 
 .banner-img {
@@ -22,4 +22,26 @@
 .banner-video {
   height: 100vh;
   width: 98vw;
+}
+
+/*  Movie Catalog */
+
+.movie-catalog {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .movie-catalog {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media only screen and (max-width: 500px) {
+  .movie-catalog {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }

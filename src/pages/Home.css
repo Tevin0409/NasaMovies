@@ -1,0 +1,50 @@
+.banner {
+  position: relative;
+}
+
+.banner-header {
+  text-align: center;
+  width: calc(100% - 40px);
+  padding: 10px 20px;
+  color: rgb(142, 202, 230);
+  font-size: 20px;
+  margin: 0;
+}
+
+.banner-header span {
+  color: #ffb703;
+}
+
+.banner-img {
+  width: 100%;
+}
+
+.banner-video {
+  height: 100vh;
+  width: 98vw;
+}
+
+/*  Movie Catalog */
+a {
+  text-decoration: none;
+}
+
+.movie-catalog {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .movie-catalog {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media only screen and (max-width: 500px) {
+  .movie-catalog {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}

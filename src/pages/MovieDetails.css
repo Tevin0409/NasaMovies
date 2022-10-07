@@ -1,0 +1,14 @@
+.movie-banner {
+  text-align: left;
+  background: #000000;
+  font-family: sans-serif;
+}
+
+.movie-banner a {
+  color: blue;
+  font-weight: 700;
+}
+
+.img-movie-banner {
+  width: 100vw;
+}

@@ -13,6 +13,10 @@ This project outlays a movie catalogue by nasa. It showcases movie ratings and t
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# APIs consumed
+
+The project consumes data from [The Moviedb](https://themoviedb.org) and [NASA](https://api.nasa.gov). The data includes movie details as well as image details that make up most of the elemnts in the app
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -46,6 +46,7 @@ const Home = () => {
         {getBannerApi.data && getBannerApi.data.media_type === "image" ? (
           <img
             src={getBannerApi.data?.url}
+            data-testid="image"
             alt="Pic of the Day"
             className="banner-img"
           />
@@ -58,7 +59,7 @@ const Home = () => {
         )}
       </section>
       <section className="movie-container">
-        <div className="mov-grid">
+        <div className="mov-grid" data-testid="show-data">
           {getMovieApi.data &&
             getMovieApi.data.results?.map((movie) => (
               <Link
